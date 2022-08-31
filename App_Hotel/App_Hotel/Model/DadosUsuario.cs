@@ -4,10 +4,10 @@ using System.Text;
 
 namespace App_Hotel.Model
 {
-    public class Suite
+    public class DadosUsuario
     {
+        public string Email { get; set; }
+        public string Senha { get; set; }
         public string Nome { get; set; }
-        public double DiariaAdulto { get; set; }
-        public double DiariaCrianca { get; set; }
     }
 }

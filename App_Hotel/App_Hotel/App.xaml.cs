@@ -1,16 +1,35 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Collections.Generic;
+using App_Hotel.View;
+using App_Hotel.Model;
+using System.Collections;
 
 namespace App_Hotel
 {
     public partial class App : Application
     {
+        public List<DadosUsuario> list_usuarios = new List<DadosUsuario>
+        {
+            new DadosUsuario()
+            {
+                Email = "marina@linda",
+                Nome = "Marina",
+                Senha = "abc"
+            }
+
+        };
+        internal IList lista_suites;
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new View.Login());
+            if (Properties.ContainsKey("usuario_logado"))
+                MainPage = new ContratacaoHospedagem();
+            else
+                MainPage = new Login();
         }
 
         protected override void OnStart()
@@ -24,5 +43,5 @@ namespace App_Hotel
         protected override void OnResume()
         {
         }
-    }
-}
+    }}
+
